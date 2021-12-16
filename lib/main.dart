@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'about.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -50,7 +52,11 @@ class MyHomePage extends StatelessWidget {
               icon: Icon(Icons.account_circle_outlined),
               label: const Text('Sobre'),
               style: style,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => About()));
+              },
             ),
             ElevatedButton.icon(
               icon: Icon(Icons.chat_outlined),
