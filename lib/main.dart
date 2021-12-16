@@ -15,6 +15,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.cyan[700],
         primarySwatch: Colors.blue,
+        fontFamily: 'Nunito',
+        textTheme: const TextTheme(
+          headline6: TextStyle(fontFamily: 'Montserrat'),
+          bodyText2: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          bodyText1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          subtitle1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+        ),
       ),
       home: MyHomePage(title: 'Trajano S. Filho Advocacia'),
     );
