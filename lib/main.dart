@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        //title: Text(widget.title),
         backgroundColor: Colors.cyan[700],
       ),
       body: Center(
@@ -46,40 +46,47 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Image.asset("assets/images/logo.png", width: 300),
-            ElevatedButton(
+            ElevatedButton.icon(
+              icon: Icon(Icons.account_circle_outlined),
+              label: const Text('Sobre'),
               style: style,
               onPressed: () {},
-              child: const Text('Sobre'),
             ),
-          ElevatedButton(
+            ElevatedButton.icon(
+              icon: Icon(Icons.chat_outlined),
+              label: const Text('WhatsApp'),
             style: style,
             onPressed: () {},
-            child: const Text('WhatsApp'),
           ),
-          ElevatedButton(
+            ElevatedButton.icon(
+              icon: Icon(Icons.business_outlined),
+              label: const Text('Tahech Advogados'),
             style: style,
             onPressed: () {},
-            child: const Text('Tahech Advogados'),
           ),
-          ElevatedButton(
+            ElevatedButton.icon(
+              icon: Icon(Icons.person_add_outlined),
+              label: const Text('LindekIn'),
             style: style,
             onPressed: () {},
-            child: const Text('LindekIn'),
           ),
-          ElevatedButton(
+            ElevatedButton.icon(
+              icon: Icon(Icons.gavel_outlined),
+              label: const Text('JusBrasil'),
             style: style,
             onPressed: () {},
-            child: const Text('JusBrasil'),
           ),
-          ElevatedButton(
+            ElevatedButton.icon(
+              icon: Icon(Icons.badge_outlined),
+              label: const Text('Currículo Lattes'),
             style: style,
             onPressed: () {},
-            child: const Text('Currículo Lattes'),
           ),
-          ElevatedButton(
+            ElevatedButton.icon(
+              icon: Icon(Icons.email_outlined),
+              label: const Text('E-mail'),
             style: style,
             onPressed: () {},
-            child: const Text('E-mail'),
           )],
         ),
       ),
