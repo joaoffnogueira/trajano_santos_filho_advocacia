@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'about.dart';
 
 void main() {
@@ -69,37 +69,39 @@ class MyHomePage extends StatelessWidget {
               icon: Icon(Icons.chat_outlined),
               label: const Text('WhatsApp'),
             style: style,
-            onPressed: () {},
+            onPressed: () {
+              var whatsappUrl = "whatsapp://send?phone=+5542998535765";
+                launch(whatsappUrl);},
           ),
             ElevatedButton.icon(
               icon: Icon(Icons.business_outlined),
               label: const Text('Tahech Advogados'),
             style: style,
-            onPressed: () {},
+            onPressed: () {launch('https://tahech.com/');},
           ),
             ElevatedButton.icon(
               icon: Icon(Icons.person_add_outlined),
               label: const Text('LindekIn'),
             style: style,
-            onPressed: () {},
+            onPressed: () {launch('https://www.linkedin.com/in/trajano-santos-filho-6b9314115/');},
           ),
             ElevatedButton.icon(
               icon: Icon(Icons.gavel_outlined),
               label: const Text('JusBrasil'),
             style: style,
-            onPressed: () {},
+            onPressed: () {launch('https://trjno.jusbrasil.com.br/');},
           ),
             ElevatedButton.icon(
               icon: Icon(Icons.badge_outlined),
               label: const Text('Currículo Lattes'),
             style: style,
-            onPressed: () {},
+            onPressed: () {launch('http://lattes.cnpq.br/4510844659930215');},
           ),
             ElevatedButton.icon(
               icon: Icon(Icons.email_outlined),
               label: const Text('E-mail'),
             style: style,
-            onPressed: () {},
+            onPressed: () {launch('mailto:contato@trajanoadv.info?Subject=Contato%20App');},
           )],
         ),
       ),
