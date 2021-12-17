@@ -69,9 +69,14 @@ class MyHomePage extends StatelessWidget {
               icon: Icon(Icons.chat_outlined),
               label: const Text('WhatsApp'),
             style: style,
-            onPressed: () {
+            onPressed: () async {
               var whatsappUrl = "whatsapp://send?phone=+5542998535765";
-                launch(whatsappUrl);},
+              var url = "https://wa.me/5542998535765";
+              if (await canLaunch(whatsappUrl)) {
+                launch(whatsappUrl);
+              } else {
+                launch(url);
+              }},
           ),
             ElevatedButton.icon(
               icon: Icon(Icons.business_outlined),
