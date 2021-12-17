@@ -15,7 +15,22 @@ class About extends StatelessWidget {
             shrinkWrap: true,
             padding: const EdgeInsets.all(20.0),
             children: <Widget>[
-              Image.asset("assets/images/foto.webp", width: 300),
+              Container(
+                width: 300,
+                height: 300,
+                child: CircleAvatar(
+                  radius: 150,
+                  backgroundColor: Color(0xFF0097A7),
+                  child: CircleAvatar(
+                    radius: 140,
+                    backgroundColor: Color(0xFFFAFAFA),
+                    child: CircleAvatar(
+                      radius: 130,
+                      backgroundImage: AssetImage('assets/images/foto.webp'),
+                  ),
+                ),
+              ),
+              ),
               Text(
                 'Olá!',
                 textAlign: TextAlign.justify,
