@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.joaonogueira.trajano_santos_filho_advocacia">
    <application
-        android:label="trajano_santos_filho_advocacia"
+        android:label="Trajano S. Filho Advocacia"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -41,4 +41,5 @@
            android:name="com.google.firebase.messaging.default_notification_channel_id"
            android:value="high_importance_channel" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

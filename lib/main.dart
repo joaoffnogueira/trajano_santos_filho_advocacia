@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Trajano S. Filho Advocacia',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.cyan[700],
         primarySwatch: Colors.blue,
