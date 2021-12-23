@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "701140553866",
+    "project_id": "trajano-adv-flutter",
+    "storage_bucket": "trajano-adv-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701140553866:android:a320e199b80048fd945d73",
+        "android_client_info": {
+          "package_name": "dev.joaonogueira.trajano_santos_filho_advocacia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701140553866-ro46n7eg2aei37tvksd3n4ef8k1lhiqk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeIVtvlfjomF_koo1vOdjoN-SCbrKrKmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "701140553866-ro46n7eg2aei37tvksd3n4ef8k1lhiqk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
