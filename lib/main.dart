@@ -90,6 +90,26 @@ class MyHomePage extends StatelessWidget {
             ));
       }
     });
+
+    void _handleMessage(RemoteMessage message) {
+      if (message.data['link'] != null) {
+        launch('${message.data['link']}');
+      }
+    }
+
+    Future<void> setupInteractedMessage() async {
+      RemoteMessage? initialMessage =
+      await FirebaseMessaging.instance.getInitialMessage();
+      if (initialMessage != null) {
+        _handleMessage(initialMessage);
+      }
+
+      // Also handle any interaction when the app is in the background via a
+      // Stream listener
+      FirebaseMessaging.onMessageOpenedApp.listen(_handleMessage);
+    }
+
+    setupInteractedMessage();
     final ButtonStyle style = ElevatedButton.styleFrom(
       primary: Colors.cyan[700],
       textStyle: const TextStyle(fontSize: 20),
