@@ -9,3 +9,5 @@ Made with Flutter, based on Material Design, this app can be deployed for Androi
 Feito com Flutter, baseado em Material Design, este aplicativo pode ser lançado para Android e iOS. Ele inclui uma visualização de página “sobre” e oferece maneiras de os usuários se comunicarem com o escritório de advocacia (como WhatsApp, E-mail) e links para as redes sociais (como LinkedIn, site da Tahech Advogados). O aplicativo também é integrado ao Firebase, e usa o serviço Firebase Cloud Messaging para receber notificações push, que podem ser links de marketing do escritório ou materiais jurídicos gratuitos para clientes. Já está disponível no Google Play. Versão para iOS em breve.
 
 [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height=100vh>](https://play.google.com/store/apps/details?id=dev.joaonogueira.trajano_santos_filho_advocacia)
+
+Google Play and the Google Play logo are trademarks of Google LLC.
