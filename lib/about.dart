@@ -7,7 +7,7 @@ class About extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Trajano S. Filho Advocacia"),
-        backgroundColor: Colors.cyan[700],
+        backgroundColor: Colors.cyan[800],
       ),
       body: Center(
         child: ListView(
@@ -33,22 +33,22 @@ class About extends StatelessWidget {
               ),
               Text(
                 'Olá!',
-                textAlign: TextAlign.justify,
+                textAlign: TextAlign.left,
                 overflow: TextOverflow.ellipsis,
               ),
               Text(
-                'Me chamo Trajano, sou advogado (OAB/PR 85.417) e desde 2017 atuo no âmbito consultivo e contencioso, em favor de empresas nas suas relações com a administração pública, com parceiros comerciais e com seus consumidores.',
-                textAlign: TextAlign.justify,
+                '       Me chamo Trajano, sou advogado (OAB/PR 85.417) e desde 2017 atuo no âmbito consultivo e contencioso, em favor de empresas nas suas relações com a administração pública, com parceiros comerciais e com seus consumidores.',
+                textAlign: TextAlign.left,
                 softWrap: true,
               ),
               Text(
-                'Prezo pelo rigor técnico, sustentabilidade, ética e eficiência em todos os projetos de que faço parte, empregando técnicas de legal design na busca por soluções criativas e inteligentes para as necessidades dos meus clientes.',
-                textAlign: TextAlign.justify,
+                '       Prezo pelo rigor técnico, sustentabilidade, ética e eficiência em todos os projetos de que faço parte, empregando técnicas de legal design na busca por soluções criativas e inteligentes para as necessidades dos meus clientes.',
+                textAlign: TextAlign.left,
                 softWrap: true,
               ),
               Text(
-                'Ofereço atendimento virtual para todo o Brasil, sobretudo nas áreas de:',
-                textAlign: TextAlign.justify,
+                '       Ofereço atendimento virtual para todo o Brasil, sobretudo nas áreas de:',
+                textAlign: TextAlign.left,
                 softWrap: true,
               ),
               ListTile(
@@ -84,18 +84,18 @@ class About extends StatelessWidget {
                 title: Text('Startups.'),
               ),
               Text(
-                'Se quiser me conhecer melhor, minha rotina profissional e produção técnica, dê uma olhada nos demais links da página inicial. Além dos atalhos para as redes sociais, você tem acesso à minha página no JusBrasil e ao meu Currículo Lattes.',
-                textAlign: TextAlign.justify,
+                '       Se quiser me conhecer melhor, minha rotina profissional e produção técnica, dê uma olhada nos demais links da página inicial. Além dos atalhos para as redes sociais, você tem acesso à minha página no JusBrasil e ao meu Currículo Lattes.',
+                textAlign: TextAlign.left,
                 softWrap: true,
               ),
               Text(
-                'Se precisar de ajuda, terei a maior satisfação em atendê-lo(a)!',
-                textAlign: TextAlign.justify,
+                '       Se precisar de ajuda, terei a maior satisfação em atendê-lo(a)!',
+                textAlign: TextAlign.left,
                 softWrap: true,
               ),
               Text(
-                'Agende agora mesmo uma consulta.',
-                textAlign: TextAlign.justify,
+                '       Agende agora mesmo uma consulta.',
+                textAlign: TextAlign.left,
                 softWrap: true,
               ),
             ]),

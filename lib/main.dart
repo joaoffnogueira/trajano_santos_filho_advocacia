@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       title: 'Trajano S. Filho Advocacia',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.cyan[700],
+        primaryColor: Colors.cyan[800],
         primarySwatch: Colors.blue,
         fontFamily: 'Nunito',
         textTheme: const TextTheme(
@@ -112,14 +112,14 @@ class MyHomePage extends StatelessWidget {
 
     setupInteractedMessage();
     final ButtonStyle style = ElevatedButton.styleFrom(
-      primary: Colors.cyan[700],
+      primary: Colors.cyan[800],
       textStyle: const TextStyle(fontSize: 20),
       fixedSize: Size.fromWidth(300)
     );
     return Scaffold(
       appBar: AppBar(
         //title: Text(widget.title),
-        backgroundColor: Colors.cyan[700],
+        backgroundColor: Colors.cyan[800],
       ),
       body: Center(
         child: Column(
@@ -157,7 +157,7 @@ class MyHomePage extends StatelessWidget {
           ),
             ElevatedButton.icon(
               icon: Icon(Icons.person_add_outlined),
-              label: const Text('LindekIn'),
+              label: const Text('LinkedIn'),
             style: style,
             onPressed: () {launch('https://www.linkedin.com/in/trajano-santos-filho-6b9314115/');},
           ),
