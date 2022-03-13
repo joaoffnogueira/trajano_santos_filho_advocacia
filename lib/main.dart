@@ -12,7 +12,7 @@ const AndroidNotificationChannel channel = AndroidNotificationChannel(
 );
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-  FlutterLocalNotificationsPlugin();
+    FlutterLocalNotificationsPlugin();
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
@@ -25,7 +25,8 @@ Future<void> main() async {
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   await flutterLocalNotificationsPlugin
-      .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+      .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>()
       ?.createNotificationChannel(channel);
 
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
@@ -58,13 +59,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-/* class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-} */
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -100,7 +94,7 @@ class MyHomePage extends StatelessWidget {
 
     Future<void> setupInteractedMessage() async {
       RemoteMessage? initialMessage =
-      await FirebaseMessaging.instance.getInitialMessage();
+          await FirebaseMessaging.instance.getInitialMessage();
       if (initialMessage != null) {
         _handleMessage(initialMessage);
       }
@@ -112,73 +106,87 @@ class MyHomePage extends StatelessWidget {
 
     setupInteractedMessage();
     final ButtonStyle style = ElevatedButton.styleFrom(
-      primary: Colors.cyan[800],
-      textStyle: const TextStyle(fontSize: 20),
-      fixedSize: Size.fromWidth(300)
-    );
+        primary: Colors.cyan[800],
+        textStyle: const TextStyle(fontSize: 20),
+        fixedSize: Size.fromWidth(300));
     return Scaffold(
       appBar: AppBar(
         //title: Text(widget.title),
         backgroundColor: Colors.cyan[800],
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Image.asset("assets/images/logo.png", width: 300),
-            ElevatedButton.icon(
-              icon: Icon(Icons.account_circle_outlined),
-              label: const Text('Sobre'),
-              style: style,
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => About()));
-              },
-            ),
-            ElevatedButton.icon(
-              icon: Icon(Icons.chat_outlined),
-              label: const Text('WhatsApp'),
-            style: style,
-            onPressed: () async {
-              var whatsappUrl = "whatsapp://send?phone=+5542998535765";
-              var url = "https://wa.me/5542998535765";
-              if (await canLaunch(whatsappUrl)) {
-                launch(whatsappUrl);
-              } else {
-                launch(url);
-              }},
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Image.asset("assets/images/logo.png", width: 300),
+              ElevatedButton.icon(
+                icon: Icon(Icons.account_circle_outlined),
+                label: const Text('Sobre'),
+                style: style,
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => About()));
+                },
+              ),
+              ElevatedButton.icon(
+                icon: Icon(Icons.chat_outlined),
+                label: const Text('WhatsApp'),
+                style: style,
+                onPressed: () async {
+                  var whatsappUrl = "whatsapp://send?phone=+5542998535765";
+                  var url = "https://wa.me/5542998535765";
+                  if (await canLaunch(whatsappUrl)) {
+                    launch(whatsappUrl);
+                  } else {
+                    launch(url);
+                  }
+                },
+              ),
+              ElevatedButton.icon(
+                icon: Icon(Icons.business_outlined),
+                label: const Text('Tahech Advogados'),
+                style: style,
+                onPressed: () {
+                  launch('https://tahech.com/');
+                },
+              ),
+              ElevatedButton.icon(
+                icon: Icon(Icons.person_add_outlined),
+                label: const Text('LinkedIn'),
+                style: style,
+                onPressed: () {
+                  launch(
+                      'https://www.linkedin.com/in/trajano-santos-filho-6b9314115/');
+                },
+              ),
+              ElevatedButton.icon(
+                icon: Icon(Icons.gavel_outlined),
+                label: const Text('JusBrasil'),
+                style: style,
+                onPressed: () {
+                  launch('https://trjno.jusbrasil.com.br/');
+                },
+              ),
+              ElevatedButton.icon(
+                icon: Icon(Icons.badge_outlined),
+                label: const Text('Currículo Lattes'),
+                style: style,
+                onPressed: () {
+                  launch('http://lattes.cnpq.br/4510844659930215');
+                },
+              ),
+              ElevatedButton.icon(
+                icon: Icon(Icons.email_outlined),
+                label: const Text('E-mail'),
+                style: style,
+                onPressed: () {
+                  launch(
+                      'mailto:contato@trajanoadv.info?Subject=Contato%20App');
+                },
+              )
+            ],
           ),
-            ElevatedButton.icon(
-              icon: Icon(Icons.business_outlined),
-              label: const Text('Tahech Advogados'),
-            style: style,
-            onPressed: () {launch('https://tahech.com/');},
-          ),
-            ElevatedButton.icon(
-              icon: Icon(Icons.person_add_outlined),
-              label: const Text('LinkedIn'),
-            style: style,
-            onPressed: () {launch('https://www.linkedin.com/in/trajano-santos-filho-6b9314115/');},
-          ),
-            ElevatedButton.icon(
-              icon: Icon(Icons.gavel_outlined),
-              label: const Text('JusBrasil'),
-            style: style,
-            onPressed: () {launch('https://trjno.jusbrasil.com.br/');},
-          ),
-            ElevatedButton.icon(
-              icon: Icon(Icons.badge_outlined),
-              label: const Text('Currículo Lattes'),
-            style: style,
-            onPressed: () {launch('http://lattes.cnpq.br/4510844659930215');},
-          ),
-            ElevatedButton.icon(
-              icon: Icon(Icons.email_outlined),
-              label: const Text('E-mail'),
-            style: style,
-            onPressed: () {launch('mailto:contato@trajanoadv.info?Subject=Contato%20App');},
-          )],
         ),
       ),
     );
