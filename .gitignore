@@ -10,6 +10,7 @@
 .svn/
 /assets/
 key.properties
+lib/firebase_options.dart
 
 # IntelliJ related
 *.iml
