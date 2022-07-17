@@ -1,6 +1,10 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:trajano_santos_filho_advocacia/firebase_options.dart';
+import 'package:trajano_santos_filho_advocacia/screens/home_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'about.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+import 'screens/about_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -21,7 +25,9 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   await flutterLocalNotificationsPlugin
@@ -38,15 +44,17 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Trajano S. Filho Advocacia',
+      title: 'Trajano Filho Advocacia',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.cyan[800],
-        primarySwatch: Colors.blue,
+        //useMaterial3: true,
+        primaryColor: const Color.fromRGBO(177, 96, 69, 100),
+        primarySwatch: Colors.brown,
         fontFamily: 'Nunito',
         textTheme: const TextTheme(
           headline6: TextStyle(fontFamily: 'Montserrat'),
@@ -55,7 +63,7 @@ class MyApp extends StatelessWidget {
           subtitle1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
         ),
       ),
-      home: MyHomePage(title: 'Trajano S. Filho Advocacia'),
+      home: MyHomePage(title: 'Trajano Filho Advocacia'),
     );
   }
 }
@@ -88,7 +96,7 @@ class MyHomePage extends StatelessWidget {
 
     void _handleMessage(RemoteMessage message) {
       if (message.data['link'] != null) {
-        launch('${message.data['link']}');
+        launchUrlString('${message.data['link']}');
       }
     }
 
@@ -105,90 +113,6 @@ class MyHomePage extends StatelessWidget {
     }
 
     setupInteractedMessage();
-    final ButtonStyle style = ElevatedButton.styleFrom(
-        primary: Colors.cyan[800],
-        textStyle: const TextStyle(fontSize: 20),
-        fixedSize: Size.fromWidth(300));
-    return Scaffold(
-      appBar: AppBar(
-        //title: Text(widget.title),
-        backgroundColor: Colors.cyan[800],
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Image.asset("assets/images/logo.png", width: 300),
-              ElevatedButton.icon(
-                icon: Icon(Icons.account_circle_outlined),
-                label: const Text('Sobre'),
-                style: style,
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => About()));
-                },
-              ),
-              ElevatedButton.icon(
-                icon: Icon(Icons.chat_outlined),
-                label: const Text('WhatsApp'),
-                style: style,
-                onPressed: () async {
-                  var whatsappUrl = "whatsapp://send?phone=+5542998535765";
-                  var url = "https://wa.me/5542998535765";
-                  if (await canLaunch(whatsappUrl)) {
-                    launch(whatsappUrl);
-                  } else {
-                    launch(url);
-                  }
-                },
-              ),
-              ElevatedButton.icon(
-                icon: Icon(Icons.business_outlined),
-                label: const Text('Tahech Advogados'),
-                style: style,
-                onPressed: () {
-                  launch('https://tahech.com/');
-                },
-              ),
-              ElevatedButton.icon(
-                icon: Icon(Icons.person_add_outlined),
-                label: const Text('LinkedIn'),
-                style: style,
-                onPressed: () {
-                  launch(
-                      'https://www.linkedin.com/in/trajano-santos-filho-6b9314115/');
-                },
-              ),
-              ElevatedButton.icon(
-                icon: Icon(Icons.gavel_outlined),
-                label: const Text('JusBrasil'),
-                style: style,
-                onPressed: () {
-                  launch('https://trjno.jusbrasil.com.br/');
-                },
-              ),
-              ElevatedButton.icon(
-                icon: Icon(Icons.badge_outlined),
-                label: const Text('Currículo Lattes'),
-                style: style,
-                onPressed: () {
-                  launch('http://lattes.cnpq.br/4510844659930215');
-                },
-              ),
-              ElevatedButton.icon(
-                icon: Icon(Icons.email_outlined),
-                label: const Text('E-mail'),
-                style: style,
-                onPressed: () {
-                  launch(
-                      'mailto:contato@trajanoadv.info?Subject=Contato%20App');
-                },
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+    return HomeScreen();
   }
 }
